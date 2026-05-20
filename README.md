@@ -75,8 +75,8 @@ Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://githu
 
 
 ## What I Learned
-This project required reading LOTS of documentation. Before implementing these optimizations, I had only indirectly used docker, redis, sqlalchemy, and celery at John Deere. I challenged myself to learn each of these through handcoding an extension of an already completed project. Please see the images for before and afters.
-This project was impractical, which is why I am calling it the "Prematurely Optimized Real-Time Dashboard;" The original dashboard performed well enough and satisfied the requirements. Even so, I gained practical experience for thinking about and implementing optimizations by hand (as well as comfortability using new tools). 
+I gained practical experience for thinking about and implementing optimizations by hand. This project required reading LOTS of documentation. Before implementing these optimizations, I had only indirectly used docker, redis, sqlalchemy, and celery at John Deere. I challenged myself to learn each of these through handcoding an extension of an already completed project. Please see the images for before and afters.
+This project was impractical as only one IoT device was used, which is why I am calling it the "Prematurely Optimized Real-Time Dashboard." If there were more devices introduced, this dashboard would be much better suited to handle incoming data and provide a much cleaner experience. 
 
 
 ## Project Images 
