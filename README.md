@@ -3,16 +3,6 @@
 ### Description
 Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://github.com/Senior-Design-2025-2026/L1-web-application) to explore new tools.
 
-<div align="center">
-  <img src="img/old-arch.png" alt="ew" width="800">
-  <div><em>Old System Architecture</em></div>
-</div>
-
-<div align="center">
-  <img src="img/arch.png" alt="ooh lah lah" width="1000">
-  <div><em>Improved System Architecture</em></div>
-</div>
-
 ---
 
 ### Project Tags
@@ -30,6 +20,16 @@ Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://githu
 </div>
 
 ---
+<div align="center">
+  <img src="img/old-arch.png" alt="ew" width="800">
+  <div><em>Old System Architecture</em></div>
+</div>
+
+<div align="center">
+  <img src="img/arch.png" alt="ooh lah lah" width="1000">
+  <div><em>Improved System Architecture</em></div>
+</div>
+
 
 ## Optimizations Made
 
