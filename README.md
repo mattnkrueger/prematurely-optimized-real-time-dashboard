@@ -16,7 +16,7 @@ Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://githu
   <img src="tags/docker.svg" width="60" alt="Docker" />
   <img src="tags/postgres.svg" width="60" alt="Postgres" />
   <img src="tags/sqlalchemy.svg" width="158" alt="SQLAlchemy" />
-  <img src="tags/celery.svg" width="152" alt="Celery" />
+  <img src="tags/celery.svg" width="132" alt="Celery" />
 </div>
 
 ---
