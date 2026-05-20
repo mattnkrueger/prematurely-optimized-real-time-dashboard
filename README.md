@@ -4,8 +4,13 @@
 Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://github.com/Senior-Design-2025-2026/L1-web-application) to explore new tools.
 
 <div align="center">
-  <img src="img/arch.png" alt="System Architecture" width="1000">
-  <div><em>System Architecture</em></div>
+  <img src="img/old-arch.png" alt="ew" width="1000">
+  <div><em>Old System Architecture</em></div>
+</div>
+
+<div align="center">
+  <img src="img/arch.png" alt="ooh lah lah" width="1000">
+  <div><em>Improved System Architecture</em></div>
 </div>
 
 ---
@@ -62,22 +67,31 @@ Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://githu
      - docker containers for dashboard, stream writer, postgres, and celery apps run on separate containers
      - psuedo parallelism achieved --> better performance of dashboard (which was my goal :) )
 
-This project required reading LOTS of documentation. Before implementing these optimizations, I had only indirectly used docker, redis, sqlalchemy, and celery at John Deere. I challenged myself to learn each of these through handcoding an extension of an already completed project. Please see the images for before and afters.
+6. **Serve on Beefier Computer:**
+    - previous: served on the same Raspberry Pi which collected the data
+    - new: 
+      - served locally on macbook with more processing power for an improved UX
+    - future: served via cloud or home network
 
+```
+# Note From Matt
+This project required reading LOTS of documentation. Before implementing these optimizations, I had only indirectly used docker, redis, sqlalchemy, and celery at John Deere. I challenged myself to learn each of these through handcoding an extension of an already completed project. Please see the images for before and afters.
 This project was impractical, which is why I am calling it the "Prematurely Optimized Real-Time Dashboard;" The original dashboard performed well enough and satisfied the requirements. Even so, I gained practical experience for thinking about and implementing optimizations by hand (as well as comfortability using new tools). 
+```
 
 ## Project Images 
 
 <div align="center">
-  <img src="img/image-6.png" alt="Finished Product - Additional View" width="800">
-  <div><em>Web Application</em></div>
+  <img src="img/old-dash.png" alt="ew" width="400">
+  <div><em>Old Web Application</em></div>
 </div>
-
 
 <div align="center">
-  <img src="img/schema.png" alt="application responsibility" width="400">
-  <div><em>Tables</em></div>
+  <img src="img/image-6.png" alt="ooh lah lah" width="800">
+  <div><em>Improved Web Application</em></div>
 </div>
+
+
 
 ## Source Code
 
