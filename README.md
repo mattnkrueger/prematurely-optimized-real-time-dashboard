@@ -1,66 +1,89 @@
-# IoT Thermostat Real-Time Dashboard
+# Prematurely Optimized Real-Time Dashboard
 
-<div align="center">
-  <img src="img/image-6.png" alt="Finished Product - Additional View" width="800">
-  <div><em>Web Application</em></div>
-</div>
+### Description
+Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://github.com/Senior-Design-2025-2026/L1-web-application) to explore new tools.
 
 <div align="center">
   <img src="img/arch.png" alt="System Architecture" width="1000">
   <div><em>System Architecture</em></div>
 </div>
 
+---
 
-# About
-To move past a prototype and build a more robust system, a second application was created with support for further iterations of the project in mind. Having already completed the base requirements, this application was focused on how we to improve the system. 
-
-Keeping the embedded system the relatively unchanged, the new software application consists of five components: a dedicated entry point for streaming data (1) into a Redis cache (2), a PostgreSQL database to store temperature readings and user information (3), an asynchronous task queue to handle processes with high overhead – such as database calls and SMTP - in the background (4), and a web application that serves a dashboard designed for mobile devices (5). The components were containerized using Docker to for ease of development, deployment, and future scalability.  
-
-With this extensible foundation, any smart-home application is straightforward and highly configurable; Adding an additional sensor (thermometer, humidity, air quality, etc) just means adding new endpoints to handle sensor information within the Streamer API service, creating a new stream, and creating a new table within the database. The additional sensor information can then be used for analytics and real-time operations in response to external sensor readings.  
-
-# NOTICE
-This project uses branding of the University of Iowa including logos and colors. PLEASE NOTE THIS PROJECT IS NOT AFFILIATED WITH THE UNIVERSITY OF IOWA. [University of Iowa Branding Manual](https://brand.uiowa.edu/logo)
-
-This project was an extension of the Univeristy of Iowa's Senior Design, Lab 1. 
-
-This extension project was **ungraded and purely an experimental endeavor** to explore Docker, task queues, Redis, and Postgres while strengthening my skills building dashboards. 
-
-**I am responsible for 100% of the code contents within this repository**
-
-This repository is a clone of the [ECE-Senior-Design-Lab-1-EXTENSION](https://github.com/Senior-Design-2025-2026/ECE-Senior-Design-Lab-1-EXTENSION) repository and the rest embedded code which I did not contribute to is viewable there. 
-
-**All images and diagrams (besides the circuit Pinout diagram and images of the finished physical box) were sourced and created by me.**
-
-[Original Embedded Code](https://github.com/Senior-Design-2025-2026/L1-embedded-thermostat) | [Original Web Application](https://github.com/Senior-Design-2025-2026/L1-web-application) 
-| [ECE-Senior-Design-Lab-1-EXTENSION](https://github.com/Senior-Design-2025-2026/ECE-Senior-Design-Lab-1-EXTENSION)
-
-## Raspberry Pi Pin-Out Diagram
-<div align="center">
-  <img src="img/image-3.png" alt="Raspberry Pi Pin-Out Diagram" width="800">
-  <div><em>Raspberry Pi Pin-Out Diagram</em></div>
+### Project Tags
+<div align="left">
+  <img src="tags/personal.svg" width="123" alt="Personal" />
+  <img src="tags/handwritten.svg" width="171" alt="Handwritten" />
+  <img src="tags/python.svg" width="60" alt="Python" />
+  <img src="tags/plotly.svg" width="60" alt="Plotly" />
+  <img src="tags/redis.svg" width="60" alt="Redis" />
+  <img src="tags/docker.svg" width="60" alt="Docker" />
+  <img src="tags/postgres.svg" width="60" alt="Postgres" />
+  <img src="tags/sqlalchemy.svg" width="60" alt="Postgres" />
+  <img src="tags/flask.svg" width="60" alt="Flask" />
+  <img src="tags/celery.svg" width="60" alt="Celery" />
 </div>
 
-## Database
-<div align="center">
-  <img src="img/schema.png" alt="application responsibility" width="400">
-  <div><em>Tables</em></div>
-</div>
+---
 
-## Finished Product
-<div align="center">
-  <img src="img/image-10.png" alt="Finished Product - Additional View" width="800">
-  <div><em>Embedded System</em></div>
-  <br>
-</div>
+## Optimizations Made
+1. **Improved UI with Mantine Components:**
+- previous: default dcc and dbc components
+- new:
+- - dash mantine components,
+- - UIowa themed with light/dark toggle
+- - Overall much cleaner and more intuitive UI/UX
+
+2. **Decoupled Subscription and Visualization (Streamer App):**
+- previous: streamer attached to dashboard directly; dashboard handles data subscription and data viz
+- new:
+- - implemented a streamer application (using redis streams) that sits between the IoT device(s) and dashboard.
+- - allows for more devices to stream without clogging the dashboard task queue
+- - connected via a UNIX socket
+
+3. **Decoupled Emailing and DB I/O (Celery App):**
+- previous: email alerts attached to dashboard directly; slight lag of application when email alerts are sent
+- new:
+- - implemented a celery task queue which schedules DB CRUD actions and automated emails on separate app
+- - improved workflow to keep the data visualization app data visualization specific 
+- - connected via a UNIX socket
+
+4. **Database (Postgres):**
+- previous: hardcoded email to send automated alerts to
+- new:
+- - implemented a postgres connection to allow for multiple users
+- - each user can set their desired temperature ranges, receiving an alert at their registered email
+- - allows for future addition of devices and historical storage
+
+5. **Containeriation (Docker):**
+- previous: no containers & dashboard tightly coupled
+- new:
+- - docker containers for dashboard, stream writer, postgres, and celery apps run on separate containers
+- - psuedo parallelism achieved --> better performance of dashboard (which was my goal :) )
+
+This project required reading LOTS of documentation. Before implementing these optimizations, I had only indirectly used docker, redis, sqlalchemy, and celery at John Deere. I challenged myself to learn each of these through handcoding an extension of an already completed project. Please see the images for before and afters. 
+This project was impractical, which is why I am calling it the "Prematurely Optimized Real-Time Dashboard;" The original dashboard performed well enough and satisfied the requirements. Even so, I gained practical experience for thinking about and implementing optimizations by hand (as well as comfortability using new tools). 
+
+## Project Images 
 
 <div align="center">
   <img src="img/image-6.png" alt="Finished Product - Additional View" width="800">
   <div><em>Web Application</em></div>
 </div>
 
+
+<div align="center">
+  <img src="img/schema.png" alt="application responsibility" width="400">
+  <div><em>Tables</em></div>
+</div>
+
+<div align="center">
+  <img src="img/image-10.png" alt="Finished Product - Additional View" width="800">
+  <div><em>Embedded System</em></div>
+  <br>
+</div>
+
 ## Source Code
-**Embedded System:**  
-  - [Embedded Code](embedded-code/README.md)
 
 **Software Application:**
   - Web Application  
