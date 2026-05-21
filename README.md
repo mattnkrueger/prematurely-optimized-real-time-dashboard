@@ -22,13 +22,13 @@ Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://githu
 ---
 
 <div align="center">
+  <div><strong>Old System Architecture</strong></div>
   <img src="img/old-arch.png" alt="ew" width="800">
-  <div><em>Old System Architecture</em></div>
 </div>
 
 <div align="center">
+  div><strong>OPTIMIZED System Architecture</strong></div>
   <img src="img/arch.png" alt="ooh lah lah" width="1000">
-  <div><em>Improved System Architecture</em></div>
 </div>
 
 
