@@ -27,7 +27,7 @@ Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://githu
 </div>
 
 <div align="center">
-  div><strong>OPTIMIZED System Architecture</strong></div>
+  <div><strong>OPTIMIZED System Architecture</strong></div>
   <img src="img/arch.png" alt="ooh lah lah" width="1000">
 </div>
 
