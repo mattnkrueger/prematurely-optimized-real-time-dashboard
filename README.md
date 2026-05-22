@@ -1,11 +1,16 @@
 # Prematurely Optimized Real-Time Dashboard
 
+<div align="center">
+  <div><strong>System Architecture</strong></div>
+  <img src="img/arch.png" alt="optimized arch" width="1400">
+</div>
+
 ### Description
-Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://github.com/Senior-Design-2025-2026/L1-web-application) to explore new tools.
+Optimizations made to the [Senior Design Lab 1 Dashboard](https://github.com/Senior-Design-2025-2026/L1-web-application) to explore new tools.
 
 ---
 
-### Project Tags
+### Repository Tags
 <div align="left">
   <img src="tags/personal.svg" width="138" alt="Personal" />
   <img src="tags/handwritten.svg" width="171" alt="Handwritten" />
@@ -34,44 +39,46 @@ Personal optimizations made to the [Senior Design Lab 1 Dashboard](https://githu
 </div>
 
 
-## Optimizations Made
+## Optimizations 
+Six optimizations were made to the system architecture and dashboard to improve the performance of the application and allow smoother additions in the future. These listings are in no particular order. 
 
-1. **Improved UI with Mantine Components:**
+- **Improved UI with Mantine Components:**
    - previous: default dcc and dbc components
    - new:
      - dash mantine components,
      - UIowa themed with light/dark toggle
      - Overall much cleaner and more intuitive UI/UX
 
-2. **Decoupled Subscription and Visualization (Streamer App):**
+- **Decoupled Subscription and Visualization (Streamer App):**
    - previous: streamer attached to dashboard directly; dashboard handles data subscription and data viz
    - new:
      - implemented a streamer application (using redis streams) that sits between the IoT device(s) and dashboard.
      - allows for more devices to stream without clogging the dashboard task queue
      - connected via a UNIX socket
 
-3. **Decoupled Emailing and DB I/O (Celery App):**
+ - **Decoupled Emailing and DB I/O (Celery App):**
    - previous: email alerts attached to dashboard directly; slight lag of application when email alerts are sent
    - new:
      - implemented a celery task queue which schedules DB CRUD actions and automated emails on separate app
      - improved workflow to keep the data visualization app data visualization specific 
      - connected via a UNIX socket
 
-4. **Database (Postgres):**
+- **Database (Postgres):**
    - previous: hardcoded email to send automated alerts to
    - new:
      - implemented a postgres connection to allow for multiple users
      - each user can set their desired temperature ranges, receiving an alert at their registered email
      - allows for future addition of devices and historical storage
 
-5. **Containeriation (Docker):**
-   - previous: no containers & dashboard tightly coupled
+- **Containeriation (Docker):**
+   - previous: runs only of raspberry pi system
    - new:
      - docker containers for dashboard, stream writer, postgres, and celery apps run on separate containers
-     - psuedo parallelism achieved --> better performance of dashboard (which was my goal :) )
+     - ability to run application on any machine
+     - psuedo parallelism achieved --> better performance of dashboard 
 
-6. **Serve on Beefier Computer:**
-    - previous: served on the same Raspberry Pi which collected the data
+- **Serve on Beefier Computer:**
+    - previous: served on the same Raspberry Pi which collected the data. Fewer cores == worse performance.
     - new: 
       - served locally on macbook with more processing power for an improved UX
     - future: served via cloud or home network
