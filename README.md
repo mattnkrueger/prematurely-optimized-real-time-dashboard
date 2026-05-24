@@ -1,4 +1,4 @@
-# Prematurely Optimized Real-Time Dashboard
+# Overly Optimized IoT Dashboard
 
 <div align="center">
   <div><strong>System Architecture</strong></div>
@@ -86,7 +86,7 @@ Six optimizations were made to the system architecture and dashboard to improve 
 
 ## What I Learned
 I gained practical experience for thinking about and implementing optimizations by hand. This project required reading LOTS of documentation. Before implementing these optimizations, I had only indirectly used docker, redis, sqlalchemy, and celery at John Deere. I challenged myself to learn each of these through handcoding an extension of an already completed project. Please see the images for before and afters.
-This project was impractical as only one IoT device was used, which is why I am calling it the "Prematurely Optimized Real-Time Dashboard." If there were more devices introduced, this dashboard would be much better suited to handle incoming data and provide a much cleaner experience. 
+This project was impractical as only one IoT device was used, which is why I am calling it the "Overly Optimized IoT Dashboard." If there were more devices introduced, this dashboard would be much better suited to handle incoming data and provide a much cleaner experience. 
 
 
 ## Project Images 
